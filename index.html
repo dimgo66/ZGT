@@ -7,10 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #333;
             line-height: 1.6;
         }
@@ -29,7 +29,7 @@
             position: absolute;
             bottom: -10px;
             left: 0;
-            width: 80px;
+            width: 60px;
             height: 3px;
             background-color: #2563eb;
         }
@@ -40,7 +40,7 @@
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
         
         .pricing-card {
@@ -64,69 +64,116 @@
             transform: scale(1.05);
         }
         
-        .bg-primary-gradient {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        .hero-gradient {
+            background: linear-gradient(to right, #2a2f42 0%, #373e5c 100%);
         }
         
-        .text-gradient {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
     <!-- Шапка -->
-    <header class="bg-white shadow-md fixed top-0 w-full z-10">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-white shadow-sm fixed top-0 w-full z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="text-2xl font-bold text-blue-600">
+                <div class="text-2xl font-bold text-blue-600 flex items-center">
+                    <i class="fas fa-balance-scale mr-2"></i>
                     ЗАЩИТНАЯ ГРАМОТА
                 </div>
             </div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">О нас</a>
-                <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Услуги</a>
-                <a href="#achievements" class="text-gray-700 hover:text-blue-600 font-medium">Достижения</a>
-                <a href="#prices" class="text-gray-700 hover:text-blue-600 font-medium">Цены</a>
-                <a href="#team" class="text-gray-700 hover:text-blue-600 font-medium">Команда</a>
-                <a href="#contacts" class="text-gray-700 hover:text-blue-600 font-medium">Контакты</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link text-gray-700 hover:text-blue-600">Главная</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-blue-600">Услуги</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">О нас</a>
+                <a href="#team" class="nav-link text-gray-700 hover:text-blue-600">Команда</a>
+                <a href="#prices" class="nav-link text-gray-700 hover:text-blue-600">Цены</a>
+                <a href="#contacts" class="nav-link text-gray-700 hover:text-blue-600">Контакты</a>
             </div>
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="tel:+74993017761" class="text-gray-700 hover:text-blue-600">
-                    <i class="fas fa-phone-alt mr-2"></i>+7 (499) 301-77-61
-                </a>
+            <div class="hidden md:block">
+                <a href="#contacts" class="btn-primary">Консультация</a>
             </div>
         </div>
     </header>
 
     <!-- Главный баннер -->
-    <section class="pt-24 bg-primary-gradient text-white">
-        <div class="container mx-auto px-4 py-16 md:py-24">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Профессиональная юридическая помощь в любых ситуациях</h1>
-                <p class="text-xl mb-8">Квалифицированные юристы готовы защитить ваши интересы и обеспечить положительный результат в самых сложных делах</p>
-                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <a href="#contacts" class="bg-white text-blue-600 font-bold px-8 py-3 rounded-md hover:bg-gray-100 transition">Связаться с нами</a>
-                    <a href="#services" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-md hover:bg-white hover:text-blue-600 transition">Наши услуги</a>
+    <section class="pt-24 hero-gradient text-white">
+        <div class="container mx-auto px-4 py-24 md:py-32">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Профессиональная юридическая помощь</h1>
+                    <p class="text-xl mb-8 text-gray-200">Мы предоставляем квалифицированные юридические услуги для частных лиц и бизнеса</p>
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                        <a href="#contacts" class="btn-primary inline-block text-center">Получить консультацию</a>
+                        <a href="#services" class="btn-secondary inline-block text-center">Наши услуги</a>
                 </div>
             </div>
+                <div class="md:w-1/2">
+                    <img src="sasun-bughdaryan-dvKPIykMWJc-unsplash.jpg" 
+                         alt="Судейский молоток и копилка-свинья" 
+                         class="w-full h-full md:h-[500px] object-cover object-center rounded-lg shadow-2xl">
         </div>
-        <div class="bg-white text-center py-6">
+            </div>
+        </div>
+        <div class="bg-white py-12">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <i class="fas fa-gavel text-4xl text-blue-600 mb-4"></i>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <i class="fas fa-gavel text-3xl text-blue-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Бесплатная консультация</h3>
                         <p class="text-gray-600">Получите профессиональную консультацию по любому юридическому вопросу бесплатно</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <i class="fas fa-balance-scale text-4xl text-blue-600 mb-4"></i>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <i class="fas fa-balance-scale text-3xl text-blue-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">25+ лет опыта</h3>
                         <p class="text-gray-600">Команда экспертов с многолетним опытом работы в юридической сфере</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <i class="fas fa-handshake text-4xl text-blue-600 mb-4"></i>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <i class="fas fa-handshake text-3xl text-blue-600 mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Индивидуальный подход</h3>
                         <p class="text-gray-600">Разрабатываем уникальные решения для каждого клиента</p>
                     </div>
@@ -155,10 +202,10 @@
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="bg-gray-100 p-8 rounded-lg">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
                         <div class="flex items-center mb-6">
-                            <div class="bg-blue-600 rounded-full p-4 mr-4">
-                                <i class="fas fa-chart-line text-2xl text-white"></i>
+                            <div class="bg-blue-600 rounded-full p-4 mr-4 w-14 h-14 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-xl text-white"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold">Наша миссия</h3>
@@ -166,8 +213,8 @@
                             </div>
                         </div>
                         <div class="flex items-center mb-6">
-                            <div class="bg-blue-600 rounded-full p-4 mr-4">
-                                <i class="fas fa-bullseye text-2xl text-white"></i>
+                            <div class="bg-blue-600 rounded-full p-4 mr-4 w-14 h-14 flex items-center justify-center">
+                                <i class="fas fa-bullseye text-xl text-white"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold">Наши ценности</h3>
@@ -175,8 +222,8 @@
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="bg-blue-600 rounded-full p-4 mr-4">
-                                <i class="fas fa-users text-2xl text-white"></i>
+                            <div class="bg-blue-600 rounded-full p-4 mr-4 w-14 h-14 flex items-center justify-center">
+                                <i class="fas fa-users text-xl text-white"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold">Наша команда</h3>
@@ -427,29 +474,6 @@
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Оперативное представительство</h3>
                     <p class="text-gray-600">Оперативное представительство в текущем процессе при внезапной потере юриста</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Абонементное обслуживание -->
-    <section class="section bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-4 section-title">Абонементное обслуживание</h2>
-            <p class="text-gray-700 mb-8">Подпишитесь на наш годовой абонемент, и будьте уверены — ваш юрист всегда на связи, готов помочь в любое время и в любой ситуации</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                <div class="bg-gray-50 p-8 rounded-lg text-center">
-                    <h3 class="text-2xl font-bold mb-4">Для физических лиц</h3>
-                    <p class="text-gray-600 mb-4">Годовое обслуживание физического лица</p>
-                    <div class="text-4xl font-bold text-blue-600 mb-6">15 000₽<span class="text-lg">/год</span></div>
-                    <a href="#contacts" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition">Подключить</a>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-lg text-center">
-                    <h3 class="text-2xl font-bold mb-4">Для юридических лиц</h3>
-                    <p class="text-gray-600 mb-4">Годовое обслуживание юридического лица</p>
-                    <div class="text-4xl font-bold text-blue-600 mb-6">120 000₽<span class="text-lg">/год</span></div>
-                    <a href="#contacts" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 transition">Подключить</a>
                 </div>
             </div>
         </div>
@@ -815,28 +839,28 @@
                             <div class="flex items-start">
                                 <div class="bg-blue-100 rounded-full p-3 mr-4 flex-shrink-0">
                                     <i class="fab fa-whatsapp text-blue-600"></i>
-                                </div>
+                        </div>
                                 <div>
                                     <h4 class="font-semibold">WhatsApp</h4>
                                     <p class="text-gray-600">+7 (967) 555-81-82</p>
                                     <a href="https://wa.me/79675558182" target="_blank" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mt-2">
                                         <i class="fab fa-whatsapp mr-2"></i>Написать в WhatsApp
                                     </a>
-                                </div>
-                            </div>
+                    </div>
+                    </div>
                             <div class="flex items-start">
                                 <div class="bg-blue-100 rounded-full p-3 mr-4 flex-shrink-0">
                                     <i class="fas fa-clock text-blue-600"></i>
-                                </div>
-                                <div>
+                </div>
+                <div>
                                     <h4 class="font-semibold">Время работы</h4>
                                     <p class="text-gray-600">Пн-Пт: 9:00 - 19:00</p>
                                     <p class="text-gray-600">Сб-Вс: 11:00 - 16:00</p>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                 <div>
                     <div class="bg-white p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-bold mb-4">Как добраться</h3>
@@ -859,9 +883,9 @@
                             <h4 class="font-semibold mb-2">Карта проезда</h4>
                             <div class="map-container overflow-hidden rounded-lg shadow-md h-full">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.9747720526206!2d37.518176615675745!3d55.759723680455866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54985d369cde3%3A0x484e696fdf42c79a!2zOdeT0LDRidC40YLQvdCw0Y8g0JPRgNCw0LzQvtGC0LA!5e0!3m2!1sru!2sru!4v1649328781977!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
                     </div>
+                </div>
+            </div>
                 </div>
             </div>
         </div>
